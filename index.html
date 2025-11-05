@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashionista - Join the Waitlist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 20px;
+            color: #000;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .content-section {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .header-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .app-icon-small {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #000;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            color: #000;
+        }
+
+        .description {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #1d1d1f;
+        }
+
+        .waitlist-form {
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            padding: 14px 18px;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #fff;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #000;
+        }
+
+        button {
+            padding: 14px 32px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: #333;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .footer-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-block;
+            margin-top: 20px;
+            transition: opacity 0.2s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 0.6;
+        }
+
+        .video-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 300px;
+        }
+
+        .phone-mockup {
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .phone-frame {
+            width: 100%;
+            aspect-ratio: 9/19.5;
+            background: #1a1a1a;
+            border-radius: 50px;
+            padding: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 40px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .phone-screen video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #1a1a1a;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .screen-placeholder {
+            font-size: 60px;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 968px) {
+            .main-content {
+                flex-direction: column-reverse;
+                gap: 50px;
+            }
+
+            .content-section {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .header-section {
+                justify-content: center;
+            }
+
+            .video-section {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .phone-mockup {
+                max-width: 400px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .description {
+                font-size: 1.1rem;
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            .phone-mockup {
+                max-width: 300px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="content-section">
+            <div class="header-section">
+                <div class="app-icon-small">
+                    <img src="Fashionista_icon.PNG" alt="Fashionista" style="width: 100%; height: 100%; border-radius: 14px; object-fit: cover;">
+                </div>
+                <div class="app-title">Fashionista</div>
+            </div>
+            
+            <h1>Not your average fashion app.</h1>
+            <p class="description">Fashionista is a lightweight and intuitive fashion tracking app that makes style management effortless. So you stay consistent.</p>
+
+            <div class="waitlist-form">
+                <form id="waitlistForm">
+                    <div class="input-group">
+                        <input 
+                            type="email" 
+                            id="emailInput" 
+                            placeholder="Enter your email" 
+                            required
+                        >
+                        <button type="submit">Join Waitlist</button>
+                    </div>
+                    <div class="success-message" id="successMessage">
+                        ✓ Thanks! You're on the waitlist.
+                    </div>
+                </form>
+            </div>
+
+            <a href="https://www.linkedin.com/in/simone-bilato/" class="footer-link">Follow @simonebilato for updates</a>
+        </div>
+
+        <div class="video-section">
+            <div class="phone-mockup">
+                <div class="phone-frame">
+                    <div class="notch"></div>
+                    <div class="phone-screen">
+                        <video autoplay loop muted playsinline>
+                            <source src="fashionista_demo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('waitlistForm');
+        const emailInput = document.getElementById('emailInput');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = emailInput.value;
+            
+            // Store email (integrate with your backend)
+            console.log('Waitlist signup:', email);
+            
+            // Show success message
+            successMessage.classList.add('show');
+            emailInput.value = '';
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
