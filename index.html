@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fashionista - Join the Waitlist</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         * {
             margin: 0;
@@ -208,6 +209,21 @@
             opacity: 0.3;
         }
 
+        .error-message {
+            display: none;
+            background: #fee;
+            border: 1px solid #fcc;
+            color: #c33;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
         @media (max-width: 968px) {
             .main-content {
                 flex-direction: column-reverse;
@@ -286,6 +302,7 @@
                     <div class="input-group">
                         <input 
                             type="email" 
+                            name="email"
                             id="emailInput" 
                             placeholder="Enter your email" 
                             required
@@ -295,6 +312,11 @@
                     <div class="success-message" id="successMessage">
                         ✓ Thanks! You're on the waitlist.
                     </div>
+
+                    <div class="error-message" id="errorMessage">
+                        ⚠️ This email is already on the waitlist!
+                    </div>
+
                 </form>
             </div>
 
@@ -316,26 +338,75 @@
     </div>
 
     <script>
+        // SUPABASE CREDENTIALS
+        const SUPABASE_URL = 'https://wyujbgpbgwkeculaxxof.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind5dWpiZ3BiZ3drZWN1bGF4eG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIzMjUyMjAsImV4cCI6MjA3NzkwMTIyMH0.Cw8KX9o8q3JLPXjOENxth9bqLOdwyZZCPP1gnWFJKM8';
+        
+        // Initialize Supabase client
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        
         const form = document.getElementById('waitlistForm');
         const emailInput = document.getElementById('emailInput');
         const successMessage = document.getElementById('successMessage');
-
-        form.addEventListener('submit', (e) => {
+        const errorMessage = document.getElementById('errorMessage');
+    
+        // Handle form submission
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const email = emailInput.value;
+            const email = emailInput.value.trim().toLowerCase();
+            const submitButton = form.querySelector('button');
             
-            // Store email (integrate with your backend)
-            console.log('Waitlist signup:', email);
+            // Hide any previous messages
+            successMessage.classList.remove('show');
+            errorMessage.classList.remove('show');
             
-            // Show success message
-            successMessage.classList.add('show');
-            emailInput.value = '';
+            // Disable button during submission
+            submitButton.disabled = true;
+            submitButton.textContent = 'Joining...';
             
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 5000);
+            try {
+                // Insert email into database
+                const { data, error } = await supabase
+                    .from('waitlist')
+                    .insert([{ email: email }])
+                    .select();
+                
+                if (error) {
+                    // Check if email already exists
+                    if (error.code === '23505') {
+                        errorMessage.classList.add('show');
+                        
+                        // Hide error message after 5 seconds
+                        setTimeout(() => {
+                            errorMessage.classList.remove('show');
+                        }, 5000);
+                    } else {
+                        throw error;
+                    }
+                } else {
+                    // Success!
+                    successMessage.classList.add('show');
+                    emailInput.value = '';
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.classList.remove('show');
+                    }, 5000);
+                }
+            } catch (error) {
+                console.error('Error saving email:', error);
+                errorMessage.textContent = '⚠️ Oops! There was a problem. Please try again.';
+                errorMessage.classList.add('show');
+                
+                setTimeout(() => {
+                    errorMessage.classList.remove('show');
+                }, 5000);
+            } finally {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Join Waitlist';
+            }
         });
     </script>
 </body>
