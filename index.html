@@ -340,6 +340,23 @@
     </div>
 
     <script>
+        // Simple privacy-friendly page view tracking
+        async function trackPageView() {
+            const SUPABASE_URL = 'https://wyujbgpbgwkeculaxxof.supabase.co';
+            const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind5dWpiZ3BiZ3drZWN1bGF4eG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIzMjUyMjAsImV4cCI6MjA3NzkwMTIyMH0.Cw8KX9o8q3JLPXjOENxth9bqLOdwyZZCPP1gnWFJKM8';
+            const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+            try {
+                await supabase.from('page_views').insert([{}]);
+            } catch (error) {
+                console.error('Error tracking page view:', error);
+            }
+        }
+
+        window.addEventListener('load', trackPageView);
+    </script>
+
+    <script>
         // SUPABASE CREDENTIALS
         const SUPABASE_URL = 'https://wyujbgpbgwkeculaxxof.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind5dWpiZ3BiZ3drZWN1bGF4eG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIzMjUyMjAsImV4cCI6MjA3NzkwMTIyMH0.Cw8KX9o8q3JLPXjOENxth9bqLOdwyZZCPP1gnWFJKM8';
