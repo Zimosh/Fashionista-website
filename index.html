@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -282,33 +283,77 @@
                 font-size: 1rem;
             }
         }
+
+        /* Footer Styles */
+        footer {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #d2d2d7;
+            font-size: 12px;
+            color: #86868b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .footer-copyright {
+            color: #86868b;
+        }
+
+        .footer-nav a {
+            color: #515154;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #1d1d1f;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 968px) {
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .footer-nav a {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="main-content">
         <div class="content-section">
             <div class="header-section">
                 <div class="app-icon-small">
-                    <img src="Fashionista_icon.PNG" alt="Fashionista" style="width: 100%; height: 100%; border-radius: 14px; object-fit: cover;">
+                    <img src="Fashionista_icon.PNG" alt="Fashionista"
+                        style="width: 100%; height: 100%; border-radius: 14px; object-fit: cover;">
                 </div>
                 <div class="app-title">Fashionista</div>
             </div>
-            
+
             <h1>Not your average fashion app.</h1>
-            <p class="description">Upload photos, Fashionista instantly recognizes your clothes — from fabric type to style — and builds smart outfits that fit your look, lifestyle, and mood.
-                <br>Powered by AI, it understands your wardrobe like a real stylist would, curating fresh combinations you’d never think of but will absolutely love.
-                <br>Say goodbye to “I have nothing to wear” moments.</p>
+            <p class="description">Upload photos, Fashionista instantly recognizes your clothes — from fabric type to
+                style — and builds smart outfits that fit your look, lifestyle, and mood.
+                <br>Powered by AI, it understands your wardrobe like a real stylist would, curating fresh combinations
+                you’d never think of but will absolutely love.
+                <br>Say goodbye to “I have nothing to wear” moments.
+            </p>
 
             <div class="waitlist-form">
                 <form id="waitlistForm">
                     <div class="input-group">
-                        <input 
-                            type="email" 
-                            name="email"
-                            id="emailInput" 
-                            placeholder="Enter your email" 
-                            required
-                        >
+                        <input type="email" name="email" id="emailInput" placeholder="Enter your email" required>
                         <button type="submit">Join Waitlist</button>
                     </div>
                     <div class="success-message" id="successMessage">
@@ -339,6 +384,15 @@
         </div>
     </div>
 
+    <footer>
+        <div class="footer-copyright">
+            Copyright © 2025 Simone Bilato. All rights reserved.
+        </div>
+        <div class="footer-nav">
+            <a href="privacy.html">Privacy policy</a>
+        </div>
+    </footer>
+
     <script>
         // Simple privacy-friendly page view tracking
         async function trackPageView() {
@@ -360,42 +414,42 @@
         // SUPABASE CREDENTIALS
         const SUPABASE_URL = 'https://wyujbgpbgwkeculaxxof.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind5dWpiZ3BiZ3drZWN1bGF4eG9mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIzMjUyMjAsImV4cCI6MjA3NzkwMTIyMH0.Cw8KX9o8q3JLPXjOENxth9bqLOdwyZZCPP1gnWFJKM8';
-        
+
         // Initialize Supabase client
         const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-        
+
         const form = document.getElementById('waitlistForm');
         const emailInput = document.getElementById('emailInput');
         const successMessage = document.getElementById('successMessage');
         const errorMessage = document.getElementById('errorMessage');
-    
+
         // Handle form submission
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const email = emailInput.value.trim().toLowerCase();
             const submitButton = form.querySelector('button');
-            
+
             // Hide any previous messages
             successMessage.classList.remove('show');
             errorMessage.classList.remove('show');
-            
+
             // Disable button during submission
             submitButton.disabled = true;
             submitButton.textContent = 'Joining...';
-            
+
             try {
                 // Insert email into database
                 const { data, error } = await supabase
                     .from('waitlist')
                     .insert([{ email: email }])
                     .select();
-                
+
                 if (error) {
                     // Check if email already exists
                     if (error.code === '23505') {
                         errorMessage.classList.add('show');
-                        
+
                         // Hide error message after 5 seconds
                         setTimeout(() => {
                             errorMessage.classList.remove('show');
@@ -407,7 +461,7 @@
                     // Success!
                     successMessage.classList.add('show');
                     emailInput.value = '';
-                    
+
                     // Hide success message after 5 seconds
                     setTimeout(() => {
                         successMessage.classList.remove('show');
@@ -417,7 +471,7 @@
                 console.error('Error saving email:', error);
                 errorMessage.textContent = '⚠️ Oops! There was a problem. Please try again.';
                 errorMessage.classList.add('show');
-                
+
                 setTimeout(() => {
                     errorMessage.classList.remove('show');
                 }, 5000);
@@ -429,4 +483,5 @@
         });
     </script>
 </body>
+
 </html>
