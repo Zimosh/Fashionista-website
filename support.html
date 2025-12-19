@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Fashionista</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+        }
+
+        .header-nav {
+            margin-bottom: 40px;
+        }
+
+        .back-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .app-icon-small {
+            width: 48px;
+            height: 48px;
+            /* Using the gradient from index.html as a placeholder in case image fails */
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #1d1d1f;
+            margin-bottom: 30px;
+        }
+
+        /* Form Styles matching index.html */
+        .contact-form {
+            background: #fbfbfd;
+            border: 1px solid #d2d2d7;
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #1d1d1f;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #d2d2d7;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #fff;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #000;
+        }
+
+        button.submit-btn {
+            width: 100%;
+            padding: 14px 32px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        button.submit-btn:hover {
+            background: #333;
+        }
+
+        button.submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .direct-email {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .direct-email a {
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .direct-email a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-top: 1px solid #d2d2d7;
+            font-size: 12px;
+            color: #86868b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .footer-nav a {
+            color: #515154;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .footer-nav a:hover {
+            color: #1d1d1f;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .contact-form { padding: 20px; }
+            footer { flex-direction: column; gap: 10px; align-items: center; }
+            .footer-nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header-nav">
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+
+        <div class="app-header">
+            <div class="app-icon-small">
+                 <img src="Fashionista_icon.PNG" alt="Fashionista"
+                 style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="font-size: 1.25rem; font-weight: 600;">Fashionista Support</div>
+        </div>
+
+        <h1>How can we help?</h1>
+        <p class="subtitle">
+            Found a bug? Have a feature request? Or just want to share your outfit of the day? 
+            Fill out the form below or send us an email directly.
+        </p>
+
+        <div class="contact-form">
+            <form action="mailto:fashionista.aistylist@gmail.com" method="post" enctype="text/plain">
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="Name" placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="Subject" placeholder="Brief description of the issue" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="Message" placeholder="Describe your issue or feedback in detail..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+
+            </form>
+        </div>
+
+        <div class="direct-email">
+            Prefer to email us directly? <br>
+            <a href="mailto:fashionista.aistylist@gmail.com">fashionista.aistylist@gmail.com</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-copyright">
+            Copyright © 2025 Simone Bilato. All rights reserved.
+        </div>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+
+</body>
+</html>
