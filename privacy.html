@@ -56,6 +56,12 @@
             text-decoration: underline;
         }
 
+        code {
+            background: #f5f5f5;
+            border-radius: 4px;
+            padding: 2px 4px;
+        }
+
         .back-link {
             display: inline-block;
             margin-bottom: 30px;
@@ -77,192 +83,179 @@
     <h1>Privacy Policy for Fashionista</h1>
     <p class="last-updated"><strong>Last updated:</strong> 2026/05/07</p>
 
-    <p>This Privacy Policy describes how <strong>Fashionista</strong> ("we", "us", or "our") collects, uses, and
-        discloses your information when you use our mobile application (the "App").</p>
+    <p>This Privacy Policy describes how <strong>Fashionista</strong> ("we", "us", or "our") collects, uses, stores,
+        and discloses information when you use our mobile application (the "App").</p>
 
     <h2>1. Information We Collect</h2>
-    <p>We collect the following types of information to provide, protect, personalize, and improve the App.</p>
+    <p>We collect the following types of information to provide, secure, and improve the App's functionality.</p>
 
     <h3>1.1 Account Information</h3>
-    <p>To enable cloud synchronization and personalized experiences, some functionality may require you to create an
-        account.</p>
+    <p>You may use the App with an account or in guest mode. Some features, including cloud sync and subscriptions, may
+        require an account.</p>
     <ul>
-        <li><strong>Sign in with Apple</strong>: We receive your name and email address only if Apple provides them,
-            subject to your Apple privacy settings.</li>
-        <li><strong>Email Sign Up</strong>: If you sign up via email, we collect your email address and authentication
-            credentials. Passwords are handled by our authentication provider and are not stored by us in plain text.
-        </li>
-        <li><strong>User identifiers</strong>: We use account identifiers to authenticate you, sync your data, manage
-            subscriptions, and apply upload limits.</li>
+        <li><strong>Sign in with Apple</strong>: We process the Apple authentication token and may receive your name and
+            email address depending on your Apple privacy settings.</li>
+        <li><strong>Email authentication</strong>: If you sign up or sign in with email, we collect your email address
+            and authentication credentials. Passwords are handled by our authentication provider and are not stored by us
+            in plain text.</li>
+        <li><strong>User ID</strong>: We use an account identifier to sync your wardrobe, manage account deletion, log
+            upload limits, and link your subscription status.</li>
     </ul>
 
-    <h3>1.2 User Content (Images & Wardrobe Data)</h3>
+    <h3>1.2 Wardrobe Content</h3>
     <ul>
-        <li><strong>Wardrobe Data</strong>: We collect clothing images you upload, along with associated metadata such
-            as category, color, material, details, outfit history, and wear history.</li>
-        <li><strong>AI Processing</strong>: Images may be sent to <strong>Google Gemini API</strong> for AI-based
-            classification, garment extraction, image enhancement, and background processing.</li>
-        <li><strong>Storage</strong>: Wardrobe data is stored locally on your device. If you use an account, it may also
-            be synchronized to our secure cloud backend (<strong>Supabase</strong>) so you can access it across devices.
-        </li>
+        <li><strong>Photos and images</strong>: We collect clothing and outfit photos that you add to the App.</li>
+        <li><strong>Wardrobe metadata</strong>: We store information about your garments, such as clothing type, color,
+            material, description, image filename, and outfit combinations.</li>
+        <li><strong>Style data</strong>: We store your liked outfits, favorite colors, style preferences, wear history,
+            and related wardrobe analytics to personalize outfit suggestions.</li>
+        <li><strong>AI processing</strong>: Clothing images may be sent to <strong>Google Gemini</strong> to classify
+            garments, extract color and material information, scan full-body outfits, enhance images, and remove
+            backgrounds.</li>
+        <li><strong>Storage</strong>: Wardrobe data is stored locally on your device. If you use an account, wardrobe
+            data and images may also be synchronized to our cloud backend (<strong>Supabase</strong>) so you can restore
+            and access your data across devices.</li>
     </ul>
 
     <h3>1.3 Subscription and Purchase Data</h3>
     <ul>
-        <li>We use <strong>RevenueCat</strong> to manage subscriptions, in-app purchases, entitlements, purchase
-            history, and subscription status such as Premium or Ultra.</li>
-        <li>We do not process or store your payment card details. Payments are handled by the Apple App Store.</li>
-        <li>We may use purchase and subscription events to understand conversion performance and to measure advertising
-            campaigns.</li>
-    </ul>
-
-    <h3>1.4 Device Identifiers, App Events, and Advertising Measurement</h3>
-    <ul>
-        <li>We use the <strong>TikTok Business SDK</strong> to measure app install campaigns and in-app events, such as
-            app launch, onboarding completion, registration, login, paywall views, subscription, and purchase events.
+        <li>We use <strong>RevenueCat</strong> to manage subscriptions, entitlements, purchases, and purchase restores.
         </li>
-        <li>The TikTok Business SDK may collect device identifiers such as IDFA (if you grant tracking permission),
-            IDFV, device information, IP address, user agent, app version, and app interaction events.</li>
-        <li>We do <strong>not</strong> send your email address, phone number, name, username, or Supabase user ID to
-            TikTok.</li>
-        <li>These data may be used for third-party advertising measurement, attribution, analytics, and campaign
-            optimization.</li>
+        <li>RevenueCat may process an anonymous app user ID or your account user ID, subscription status, entitlement
+            status, product identifiers, purchase history, renewal status, and related transaction information.</li>
+        <li>We do not directly process or store your payment card information. Payments are handled by the Apple App
+            Store.</li>
     </ul>
 
-    <h3>1.5 App Tracking Transparency (ATT)</h3>
+    <h3>1.4 Location and Weather Data</h3>
     <ul>
-        <li>On iOS, we request your permission before accessing the device's advertising identifier (IDFA) or tracking
-            your activity across apps and websites owned by other companies for advertising measurement.</li>
-        <li>If you decline tracking permission, TikTok attribution may be limited, and the IDFA will not be available to
-            the App through Apple's App Tracking Transparency framework.</li>
-        <li>You can change tracking permission at any time in iOS Settings.</li>
+        <li>With your permission, we request your approximate current location while using the App to provide
+            weather-based outfit recommendations.</li>
+        <li>The App requests city-level accuracy where possible. Coordinates are sent to <strong>WeatherAPI.com</strong>
+            to retrieve local weather conditions such as temperature, rain, humidity, wind, and UV index.</li>
+        <li>We cache weather forecast data on your device for performance and availability. We do not store a history of
+            your precise location.</li>
     </ul>
 
-    <h3>1.6 Location Data</h3>
+    <h3>1.5 Camera, Photo Library, and Notifications</h3>
     <ul>
-        <li>We request access to your location to provide weather-based outfit recommendations.</li>
-        <li><strong>Purpose</strong>: To fetch local weather conditions such as temperature, rain, UV index, humidity,
-            and wind.</li>
-        <li><strong>Processing</strong>: Coordinates are sent to <strong>WeatherAPI.com</strong>. We do not store your
-            location history on our servers.</li>
+        <li><strong>Camera and photo library</strong>: We request access so you can take or select garment photos for
+            your wardrobe.</li>
+        <li><strong>Notifications</strong>: If you enable them, we schedule local daily outfit reminders. Notification
+            preferences, such as reminder time, may be stored in the App. These notifications are local reminders and
+            are not used for advertising tracking.</li>
     </ul>
 
-    <h3>1.7 Guest Mode Data</h3>
+    <h3>1.6 Guest Mode Data</h3>
     <ul>
         <li>If you use the App as a guest, your wardrobe data is stored primarily on your device.</li>
-        <li>We may assign an anonymous installation identifier (<code>guestUUID</code>) to manage feature limits such as
-            upload counts.</li>
-        <li>If you delete the App while in Guest Mode, your guest data cannot be recovered.</li>
+        <li>We may create a local anonymous identifier (<code>guestUUID</code>) to manage feature limits, such as upload
+            counts.</li>
+        <li>If you delete the App while using guest mode, guest data may not be recoverable.</li>
+    </ul>
+
+    <h3>1.7 Tracking and Advertising</h3>
+    <ul>
+        <li>The current App version does not include third-party advertising or cross-app tracking SDKs and does not
+            request App Tracking Transparency permission.</li>
+        <li>We do not collect IDFA for third-party advertising tracking and do not share your data with third-party
+            advertising networks for cross-app tracking.</li>
     </ul>
 
     <h2>2. How We Use Your Information</h2>
     <p>We use the collected information for the following purposes:</p>
     <ul>
-        <li><strong>App Functionality</strong>: To organize your wardrobe, create outfits, sync data, authenticate your
-            account, manage subscriptions, and enforce feature limits.</li>
-        <li><strong>Personalization</strong>: To suggest outfits based on your wardrobe, weather, preferences, and wear
-            history.</li>
-        <li><strong>AI Analysis</strong>: To classify clothing, detect colors and materials, enhance images, and extract
-            garments from photos.</li>
-        <li><strong>Analytics</strong>: To understand app usage, subscription conversion, feature performance, errors,
-            and product improvement opportunities.</li>
-        <li><strong>Third-Party Advertising Measurement</strong>: To measure the performance of TikTok advertising
-            campaigns and attribute installs, subscriptions, and purchases.</li>
+        <li><strong>App functionality</strong>: To create, organize, edit, and display your digital wardrobe and
+            outfits.</li>
+        <li><strong>Cloud sync and account management</strong>: To authenticate you, sync your wardrobe, restore data,
+            and delete your account and associated content when requested.</li>
+        <li><strong>Personalization</strong>: To suggest outfits based on your wardrobe, weather, wear history, liked
+            outfits, favorite colors, and style preferences.</li>
+        <li><strong>AI analysis</strong>: To classify garments, detect colors and materials, scan outfits, enhance
+            images, and remove backgrounds.</li>
+        <li><strong>Subscriptions</strong>: To verify purchases, restore purchases, unlock paid features, and manage
+            subscription status.</li>
+        <li><strong>Usage limits and reliability</strong>: To count uploads, enforce plan limits, cache weather data,
+            provide local reminders, and keep the App working reliably.</li>
     </ul>
 
-    <h2>3. App Privacy Summary</h2>
-    <p>Based on the App's current functionality and integrated SDKs, the following categories may be collected:</p>
+    <h2>3. Third-Party Services</h2>
+    <p>We use third-party services to provide specific App functionality. These services process data according to their
+        own privacy policies.</p>
     <ul>
-        <li><strong>Contact Info</strong>: Email address, used for account authentication and app functionality.</li>
-        <li><strong>Identifiers</strong>: User ID, guest installation ID, device ID, IDFA (if permitted), and IDFV, used
-            for app functionality, analytics, and advertising measurement.</li>
-        <li><strong>Purchases</strong>: Purchase history and subscription status, used for app functionality, analytics,
-            and advertising measurement.</li>
-        <li><strong>User Content</strong>: Clothing photos, wardrobe metadata, outfit data, and wear history, used for
-            app functionality and AI processing.</li>
-        <li><strong>Location</strong>: Location coordinates for weather recommendations, used for app functionality.</li>
-        <li><strong>Usage Data</strong>: Product interactions such as onboarding completion, login, registration,
-            paywall views, subscriptions, and purchases, used for analytics and advertising measurement.</li>
-        <li><strong>Diagnostics</strong>: Crash and performance data may be processed by Apple, TikTok, RevenueCat, or
-            other service providers to maintain reliability and improve performance.</li>
-    </ul>
-    <p>Data used for tracking may include device identifiers, purchase events, and product interaction events when used
-        for third-party advertising measurement and attribution.</p>
-
-    <h2>4. Third-Party Services</h2>
-    <p>We use third-party services that may process information on our behalf or as independent controllers according to
-        their own privacy policies.</p>
-    <ul>
-        <li><strong>Supabase</strong> (Backend-as-a-Service)
+        <li><strong>Supabase</strong> (authentication, database, cloud storage, and account deletion support)
             <ul>
-                <li>Used for authentication, database, file storage, and cloud synchronization.</li>
+                <li>Used for account authentication, cloud sync, wardrobe backup, image storage, upload logs, app alerts,
+                    password reset, and account deletion workflows.</li>
                 <li><a href="https://supabase.com/privacy">Supabase Privacy Policy</a></li>
             </ul>
         </li>
-        <li><strong>RevenueCat</strong> (Subscriptions)
+        <li><strong>RevenueCat</strong> (subscriptions and in-app purchases)
             <ul>
-                <li>Used to manage in-app purchases, subscriptions, entitlements, and purchase history.</li>
+                <li>Used to manage App Store purchases, subscriptions, entitlements, restore purchases, and subscription
+                    status.</li>
                 <li><a href="https://www.revenuecat.com/privacy">RevenueCat Privacy Policy</a></li>
             </ul>
         </li>
-        <li><strong>Google Gemini</strong> (Generative AI)
+        <li><strong>Google Gemini</strong> (AI image analysis and image processing)
             <ul>
-                <li>Used for image analysis, clothing classification, image enhancement, and garment extraction.</li>
+                <li>Used for clothing classification, color and material extraction, full-body outfit scanning, image
+                    enhancement, and background removal.</li>
                 <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
             </ul>
         </li>
-        <li><strong>WeatherAPI.com</strong>
+        <li><strong>WeatherAPI.com</strong> (weather forecasts)
             <ul>
-                <li>Used to fetch weather data for outfit recommendations.</li>
+                <li>Used to retrieve weather forecasts for outfit recommendations based on your current location.</li>
                 <li><a href="https://www.weatherapi.com/privacy.aspx">WeatherAPI.com Privacy Policy</a></li>
             </ul>
         </li>
-        <li><strong>TikTok Business SDK</strong> (Advertising Measurement)
+        <li><strong>Apple</strong> (App Store, Sign in with Apple, StoreKit, and iOS permissions)
             <ul>
-                <li>Used for app event measurement, ad attribution, campaign analytics, and campaign optimization.</li>
-                <li>May collect device identifiers, app events, purchase/subscription events, IP address, user agent,
-                    app version, and device information.</li>
-                <li><a href="https://www.tiktok.com/legal/page/global/privacy-policy/en">TikTok Privacy Policy</a></li>
+                <li>Used for app distribution, in-app purchase processing, Sign in with Apple, purchase review prompts,
+                    and system permissions such as camera, photos, location, and notifications.</li>
+                <li><a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a></li>
             </ul>
         </li>
     </ul>
 
-    <h2>5. Data Storage and Retention</h2>
+    <h2>4. Data Storage and Retention</h2>
     <ul>
-        <li><strong>Local Storage</strong>: Some wardrobe data, images, weather cache, guest identifiers, and
-            preferences are stored on your device.</li>
-        <li><strong>Cloud Sync</strong>: If you use an account, your wardrobe data and images are stored in Supabase and
-            linked to your account.</li>
-        <li><strong>Retention</strong>: We retain your personal information only for as long as necessary for the
-            purposes described in this Privacy Policy, unless a longer retention period is required or permitted by law.
-        </li>
-        <li><strong>Account Deletion</strong>: You can request to delete your account directly within the App settings.
-            Deleting your account permanently removes your login credentials and associated wardrobe data from our
-            servers, subject to backup, fraud-prevention, legal, or platform retention requirements.</li>
+        <li><strong>Local storage</strong>: Wardrobe data, images, wear history, preferences, cached weather data, and
+            guest mode data may be stored on your device.</li>
+        <li><strong>Cloud sync</strong>: If you use an account, wardrobe data and images may be stored in Supabase and
+            linked to your account ID.</li>
+        <li><strong>Retention</strong>: We retain personal information only for as long as necessary to provide the App,
+            comply with legal obligations, resolve disputes, and enforce agreements.</li>
+        <li><strong>Account deletion</strong>: You can request account deletion from within the App. Deleting your
+            account removes your login credentials and associated cloud data, including stored wardrobe files and images,
+            subject to any legal or operational retention requirements.</li>
     </ul>
 
-    <h2>6. Your Rights and Choices</h2>
+    <h2>5. Your Rights and Choices</h2>
     <p>You have control over your information:</p>
     <ul>
-        <li><strong>Access & Portability</strong>: You can view your wardrobe items and related data within the App.</li>
-        <li><strong>Correction</strong>: You can edit clothing details at any time.</li>
-        <li><strong>Deletion</strong>: You can delete individual items or your entire account via the Profile settings.
-        </li>
-        <li><strong>Permissions</strong>: You can manage Location, Camera, Photo Library, Notifications, and Tracking
-            permissions in iOS Settings.</li>
-        <li><strong>Tracking</strong>: You can allow or deny tracking through Apple's App Tracking Transparency prompt
-            or change your choice later in iOS Settings.</li>
+        <li><strong>Access</strong>: You can view your wardrobe, outfits, style preferences, and subscription status in
+            the App.</li>
+        <li><strong>Correction</strong>: You can edit clothing details, preferences, favorite colors, and outfit-related
+            data in the App.</li>
+        <li><strong>Deletion</strong>: You can delete individual wardrobe items or delete your entire account from the
+            Profile settings.</li>
+        <li><strong>Permissions</strong>: You can manage Camera, Photos, Location, and Notifications permissions in iOS
+            Settings.</li>
+        <li><strong>Subscriptions</strong>: You can manage or cancel subscriptions through your Apple App Store account
+            settings.</li>
     </ul>
 
-    <h2>7. Children's Privacy</h2>
+    <h2>6. Children's Privacy</h2>
     <p>Our App is not intended for use by children under the age of 13. We do not knowingly collect personally
         identifiable information from children under 13.</p>
 
-    <h2>8. Changes to This Privacy Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy
-        Policy on this page and updating the "Last updated" date.</p>
+    <h2>7. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will post the updated Privacy Policy on this page and
+        update the "Last updated" date.</p>
 
-    <h2>9. Contact Us</h2>
+    <h2>8. Contact Us</h2>
     <p>If you have any questions about this Privacy Policy, please contact us:</p>
     <ul>
         <li>By email: bilato.simone1999@gmail.com</li>
