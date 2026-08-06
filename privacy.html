@@ -4,42 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Fashionista</title>
+    <meta name="description" content="Fashionista Privacy Policy and AI Transparency Notice">
+    <title>Privacy Policy and AI Transparency Notice - Fashionista</title>
     <style>
+        :root {
+            --background: #ffffff;
+            --surface: #f5f5f7;
+            --heading: #000000;
+            --text: #1d1d1f;
+            --muted: #666666;
+            --footer: #86868b;
+            --border: #d2d2d7;
+            --link: #0066cc;
+        }
+
+        /* ponytail: use the home page's native system stack; extract shared CSS if legal pages multiply. */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
             margin: 0 auto;
+            max-width: 800px;
+            min-height: 100vh;
             padding: 40px 20px;
+            background: var(--background);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--heading);
+            font-weight: 600;
         }
 
         h1 {
+            margin: 0 0 10px;
             font-size: 2.5rem;
-            margin-bottom: 10px;
+            line-height: 1.1;
         }
 
         h2 {
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eee;
+            margin: 30px 0 15px;
             padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+            font-size: 1.5rem;
+            line-height: 1.25;
+            scroll-margin-top: 20px;
         }
 
         h3 {
+            margin: 25px 0 10px;
             font-size: 1.2rem;
-            margin-top: 25px;
-            margin-bottom: 10px;
+            line-height: 1.3;
         }
 
-        p {
-            margin-bottom: 15px;
+        p,
+        ul {
+            margin: 0 0 15px;
         }
 
         ul {
-            margin-bottom: 15px;
             padding-left: 20px;
         }
 
@@ -48,7 +81,7 @@
         }
 
         a {
-            color: #0066cc;
+            color: var(--link);
             text-decoration: none;
         }
 
@@ -56,210 +89,784 @@
             text-decoration: underline;
         }
 
-        code {
-            background: #f5f5f5;
-            border-radius: 4px;
-            padding: 2px 4px;
+        a:focus-visible {
+            outline: 3px solid var(--link);
+            outline-offset: 3px;
         }
 
         .back-link {
             display: inline-block;
             margin-bottom: 30px;
-            color: #666;
+            color: var(--muted);
             font-size: 0.9rem;
         }
 
+        .language-nav {
+            display: flex;
+            gap: 20px;
+            margin: 0 0 30px;
+        }
+
+        .language-nav a {
+            font-weight: 600;
+        }
+
         .last-updated {
-            color: #666;
+            color: var(--muted);
             font-style: italic;
             margin-bottom: 40px;
+        }
+
+        .notice {
+            margin: 0 0 35px;
+            padding: 18px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 680px;
+            font-size: 0.95rem;
+        }
+
+        th,
+        td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--surface);
+            color: var(--heading);
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .language-section + .language-section {
+            margin-top: 64px;
+            padding-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--footer);
+            font-size: 12px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .language-nav {
+                margin-bottom: 25px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <a href="index.html" class="back-link">&larr; Back to Home</a>
+    <a href="index.html" class="back-link">&#8592; Back to Home</a>
 
-    <h1>Privacy Policy for Fashionista</h1>
-    <p class="last-updated"><strong>Last updated:</strong> 2026/05/07</p>
+    <nav class="language-nav" aria-label="Language selection">
+        <a href="#english" lang="en">English</a>
+        <a href="#italiano" lang="it">Italiano</a>
+    </nav>
 
-    <p>This Privacy Policy describes how <strong>Fashionista</strong> ("we", "us", or "our") collects, uses, stores,
-        and discloses information when you use our mobile application (the "App").</p>
+    <!-- ponytail: one static bilingual page; split into locale routes if website gains language routing. -->
 
-    <h2>1. Information We Collect</h2>
-    <p>We collect the following types of information to provide, secure, and improve the App's functionality.</p>
+    <main>
+        <section id="english" class="language-section" lang="en">
+            <h1>Privacy Policy and AI Transparency Notice</h1>
+            <p class="last-updated"><strong>Last updated:</strong> August 6, 2026</p>
 
-    <h3>1.1 Account Information</h3>
-    <p>You may use the App with an account or in guest mode. Some features, including cloud sync and subscriptions, may
-        require an account.</p>
-    <ul>
-        <li><strong>Sign in with Apple</strong>: We process the Apple authentication token and may receive your name and
-            email address depending on your Apple privacy settings.</li>
-        <li><strong>Email authentication</strong>: If you sign up or sign in with email, we collect your email address
-            and authentication credentials. Passwords are handled by our authentication provider and are not stored by us
-            in plain text.</li>
-        <li><strong>User ID</strong>: We use an account identifier to sync your wardrobe, manage account deletion, log
-            upload limits, and link your subscription status.</li>
-    </ul>
+            <div class="notice">
+                <strong>Summary.</strong> Fashionista processes wardrobe information, account data, optional approximate
+                location, subscription information, and images you choose to provide. Selected images are sent to Google
+                Gemini when you request AI features. Fashionista does not sell personal data, serve third-party ads, use
+                IDFA, or make decisions producing legal or similarly significant effects.
+            </div>
 
-    <h3>1.2 Wardrobe Content</h3>
-    <ul>
-        <li><strong>Photos and images</strong>: We collect clothing and outfit photos that you add to the App.</li>
-        <li><strong>Wardrobe metadata</strong>: We store information about your garments, such as clothing type, color,
-            material, description, image filename, and outfit combinations.</li>
-        <li><strong>Style data</strong>: We store your liked outfits, favorite colors, style preferences, wear history,
-            and related wardrobe analytics to personalize outfit suggestions.</li>
-        <li><strong>AI processing</strong>: Clothing images may be sent to <strong>Google Gemini</strong> to classify
-            garments, extract color and material information, scan full-body outfits, enhance images, and remove
-            backgrounds.</li>
-        <li><strong>Storage</strong>: Wardrobe data is stored locally on your device. If you use an account, wardrobe
-            data and images may also be synchronized to our cloud backend (<strong>Supabase</strong>) so you can restore
-            and access your data across devices.</li>
-    </ul>
+            <h2>1. Controller and scope</h2>
+            <p>
+                Fashionista is operated by <strong>Simone Bilato</strong>, Italy (the “Controller”, “Fashionista”, “we”,
+                “us”, or “our”). This notice describes how we process personal data when you use the Fashionista iOS
+                application (the “App”) and contact us about the App.
+            </p>
+            <p>
+                Privacy contact: <a href="mailto:bilato.simone1999@gmail.com">bilato.simone1999@gmail.com</a>.
+                No data protection officer has been appointed because one is not currently required for the processing
+                described in this notice.
+            </p>
 
-    <h3>1.3 Subscription and Purchase Data</h3>
-    <ul>
-        <li>We use <strong>RevenueCat</strong> to manage subscriptions, entitlements, purchases, and purchase restores.
-        </li>
-        <li>RevenueCat may process an anonymous app user ID or your account user ID, subscription status, entitlement
-            status, product identifiers, purchase history, renewal status, and related transaction information.</li>
-        <li>We do not directly process or store your payment card information. Payments are handled by the Apple App
-            Store.</li>
-    </ul>
+            <h2>2. Eligibility and images of other people</h2>
+            <p>
+                Fashionista is intended only for people aged <strong>18 or older</strong>. Do not create an account or use
+                AI features if you are under 18. Do not upload images of minors. Upload a photo of another adult only if
+                you have informed them and have a valid right or permission to use their image for the requested feature.
+            </p>
 
-    <h3>1.4 Location and Weather Data</h3>
-    <ul>
-        <li>With your permission, we request your approximate current location while using the App to provide
-            weather-based outfit recommendations.</li>
-        <li>The App requests city-level accuracy where possible. Coordinates are sent to <strong>WeatherAPI.com</strong>
-            to retrieve local weather conditions such as temperature, rain, humidity, wind, and UV index.</li>
-        <li>We cache weather forecast data on your device for performance and availability. We do not store a history of
-            your precise location.</li>
-    </ul>
+            <h2>3. Personal data we process</h2>
 
-    <h3>1.5 Camera, Photo Library, and Notifications</h3>
-    <ul>
-        <li><strong>Camera and photo library</strong>: We request access so you can take or select garment photos for
-            your wardrobe.</li>
-        <li><strong>Notifications</strong>: If you enable them, we schedule local daily outfit reminders. Notification
-            preferences, such as reminder time, may be stored in the App. These notifications are local reminders and
-            are not used for advertising tracking.</li>
-    </ul>
-
-    <h3>1.6 Guest Mode Data</h3>
-    <ul>
-        <li>If you use the App as a guest, your wardrobe data is stored primarily on your device.</li>
-        <li>We may create a local anonymous identifier (<code>guestUUID</code>) to manage feature limits, such as upload
-            counts.</li>
-        <li>If you delete the App while using guest mode, guest data may not be recoverable.</li>
-    </ul>
-
-    <h3>1.7 Tracking and Advertising</h3>
-    <ul>
-        <li>The current App version does not include third-party advertising or cross-app tracking SDKs and does not
-            request App Tracking Transparency permission.</li>
-        <li>We do not collect IDFA for third-party advertising tracking and do not share your data with third-party
-            advertising networks for cross-app tracking.</li>
-    </ul>
-
-    <h2>2. How We Use Your Information</h2>
-    <p>We use the collected information for the following purposes:</p>
-    <ul>
-        <li><strong>App functionality</strong>: To create, organize, edit, and display your digital wardrobe and
-            outfits.</li>
-        <li><strong>Cloud sync and account management</strong>: To authenticate you, sync your wardrobe, restore data,
-            and delete your account and associated content when requested.</li>
-        <li><strong>Personalization</strong>: To suggest outfits based on your wardrobe, weather, wear history, liked
-            outfits, favorite colors, and style preferences.</li>
-        <li><strong>AI analysis</strong>: To classify garments, detect colors and materials, scan outfits, enhance
-            images, and remove backgrounds.</li>
-        <li><strong>Subscriptions</strong>: To verify purchases, restore purchases, unlock paid features, and manage
-            subscription status.</li>
-        <li><strong>Usage limits and reliability</strong>: To count uploads, enforce plan limits, cache weather data,
-            provide local reminders, and keep the App working reliably.</li>
-    </ul>
-
-    <h2>3. Third-Party Services</h2>
-    <p>We use third-party services to provide specific App functionality. These services process data according to their
-        own privacy policies.</p>
-    <ul>
-        <li><strong>Supabase</strong> (authentication, database, cloud storage, and account deletion support)
+            <h3>3.1 Account and authentication data</h3>
             <ul>
-                <li>Used for account authentication, cloud sync, wardrobe backup, image storage, upload logs, app alerts,
-                    password reset, and account deletion workflows.</li>
-                <li><a href="https://supabase.com/privacy">Supabase Privacy Policy</a></li>
+                <li>Email address, authentication identifiers, session information, and account user ID.</li>
+                <li>For Sign in with Apple, the Apple authentication token and any name or email Apple makes available
+                    under your Apple privacy choices.</li>
+                <li>Passwords are handled by our authentication provider and are not stored by Fashionista in plain text.</li>
             </ul>
-        </li>
-        <li><strong>RevenueCat</strong> (subscriptions and in-app purchases)
+
+            <h3>3.2 Wardrobe, outfit, and style data</h3>
             <ul>
-                <li>Used to manage App Store purchases, subscriptions, entitlements, restore purchases, and subscription
-                    status.</li>
-                <li><a href="https://www.revenuecat.com/privacy">RevenueCat Privacy Policy</a></li>
+                <li>Garment, outfit, and full-body photos you capture or select.</li>
+                <li>Garment type, color, material, description, image filename, outfit combinations, and AI provenance.</li>
+                <li>Liked outfits, favorite colors, style preferences, wear history, and derived wardrobe insights used
+                    to personalize suggestions.</li>
+                <li>Wardrobe data is stored locally. When you use an account, wardrobe data and garment images are also
+                    synchronized to Supabase for backup and access across devices.</li>
             </ul>
-        </li>
-        <li><strong>Google Gemini</strong> (AI image analysis and image processing)
+
+            <h3>3.3 AI avatar and virtual try-on data</h3>
             <ul>
-                <li>Used for clothing classification, color and material extraction, full-body outfit scanning, image
-                    enhancement, and background removal.</li>
-                <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+                <li>When you choose the avatar or AI Try-On feature, a verified full-body photo is sent to Google Gemini
+                    to generate a neutral avatar and virtual try-on images.</li>
+                <li>The App uses Apple Vision on your device to check image orientation, whether one full-body person is
+                    present, body-pose points, and the requested verification gesture. Normalized body-position metrics
+                    are stored locally with the avatar.</li>
+                <li>The source capture is held temporarily in App memory for validation and transmission. Fashionista
+                    does not intentionally save that source capture as a separate file. The generated avatar and try-on
+                    cache are stored locally on your device.</li>
+                <li>Avatar and pose processing is not used to identify you, authenticate you, infer health, emotion,
+                    ethnicity, religion, sexual orientation, or other sensitive traits, or categorize you biometrically.</li>
             </ul>
-        </li>
-        <li><strong>WeatherAPI.com</strong> (weather forecasts)
+
+            <h3>3.4 Location and weather</h3>
             <ul>
-                <li>Used to retrieve weather forecasts for outfit recommendations based on your current location.</li>
-                <li><a href="https://www.weatherapi.com/privacy.aspx">WeatherAPI.com Privacy Policy</a></li>
+                <li>With iOS permission, the App requests approximate, city-level location while in use.</li>
+                <li>Coordinates are sent to WeatherAPI.com to return local temperature, rain, humidity, wind, UV, and
+                    related weather conditions used for outfit suggestions.</li>
+                <li>Weather results are cached locally and refreshed periodically. Fashionista does not build a location
+                    history.</li>
             </ul>
-        </li>
-        <li><strong>Apple</strong> (App Store, Sign in with Apple, StoreKit, and iOS permissions)
+
+            <h3>3.5 Subscriptions and purchases</h3>
             <ul>
-                <li>Used for app distribution, in-app purchase processing, Sign in with Apple, purchase review prompts,
-                    and system permissions such as camera, photos, location, and notifications.</li>
-                <li><a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a></li>
+                <li>RevenueCat processes an anonymous or account-linked app user ID, product and entitlement identifiers,
+                    subscription status, purchase and renewal information, and restore events.</li>
+                <li>Apple processes payment details. Fashionista does not receive or store payment card numbers.</li>
             </ul>
-        </li>
-    </ul>
 
-    <h2>4. Data Storage and Retention</h2>
-    <ul>
-        <li><strong>Local storage</strong>: Wardrobe data, images, wear history, preferences, cached weather data, and
-            guest mode data may be stored on your device.</li>
-        <li><strong>Cloud sync</strong>: If you use an account, wardrobe data and images may be stored in Supabase and
-            linked to your account ID.</li>
-        <li><strong>Retention</strong>: We retain personal information only for as long as necessary to provide the App,
-            comply with legal obligations, resolve disputes, and enforce agreements.</li>
-        <li><strong>Account deletion</strong>: You can request account deletion from within the App. Deleting your
-            account removes your login credentials and associated cloud data, including stored wardrobe files and images,
-            subject to any legal or operational retention requirements.</li>
-    </ul>
+            <h3>3.6 Usage, device, and guest data</h3>
+            <ul>
+                <li>Upload events and timestamps, linked to an account ID or locally generated guest UUID, to apply plan
+                    limits.</li>
+                <li>For signed-in users, one daily app-open event containing user ID, date, App version, build number,
+                    platform, device model, and iOS version, used for service reliability and compatibility.</li>
+                <li>A guest UUID stored in UserDefaults. It resets when the App is uninstalled and is not an advertising ID.</li>
+                <li>Service providers may receive technical network data, such as IP address, necessary to deliver and
+                    secure their services.</li>
+            </ul>
 
-    <h2>5. Your Rights and Choices</h2>
-    <p>You have control over your information:</p>
-    <ul>
-        <li><strong>Access</strong>: You can view your wardrobe, outfits, style preferences, and subscription status in
-            the App.</li>
-        <li><strong>Correction</strong>: You can edit clothing details, preferences, favorite colors, and outfit-related
-            data in the App.</li>
-        <li><strong>Deletion</strong>: You can delete individual wardrobe items or delete your entire account from the
-            Profile settings.</li>
-        <li><strong>Permissions</strong>: You can manage Camera, Photos, Location, and Notifications permissions in iOS
-            Settings.</li>
-        <li><strong>Subscriptions</strong>: You can manage or cancel subscriptions through your Apple App Store account
-            settings.</li>
-    </ul>
+            <h3>3.7 Device permissions, notifications, and support</h3>
+            <ul>
+                <li>Camera and photo-library access are used only when you take or select images.</li>
+                <li>Daily outfit reminders are local iOS notifications. Reminder status and time may be stored locally.</li>
+                <li>If you contact us, we process your email address, message, attachments, and information needed to reply.</li>
+            </ul>
 
-    <h2>6. Children's Privacy</h2>
-    <p>Our App is not intended for use by children under the age of 13. We do not knowingly collect personally
-        identifiable information from children under 13.</p>
+            <h2>4. Purposes and legal bases</h2>
+            <div class="table-wrap" role="region" aria-label="Purposes and legal bases" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Purpose</th>
+                            <th>Data</th>
+                            <th>Legal basis under GDPR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Account, wardrobe, cloud synchronization, AI features, and requested App functions</td>
+                            <td>Account, images, wardrobe, style, avatar, and output data</td>
+                            <td>Performance of contract or steps requested before contract (Art. 6(1)(b))</td>
+                        </tr>
+                        <tr>
+                            <td>Weather-based recommendations and local notifications</td>
+                            <td>Approximate location, weather result, notification preference</td>
+                            <td>Consent (Art. 6(1)(a)); withdraw through iOS Settings or App settings</td>
+                        </tr>
+                        <tr>
+                            <td>Subscriptions, entitlements, and purchase restoration</td>
+                            <td>Account or anonymous ID and transaction status</td>
+                            <td>Performance of contract (Art. 6(1)(b)); legal obligations where applicable (Art. 6(1)(c))</td>
+                        </tr>
+                        <tr>
+                            <td>Plan limits, security, troubleshooting, compatibility, and service reliability</td>
+                            <td>Upload, app-open, device, version, and technical data</td>
+                            <td>Legitimate interests in operating and protecting the App (Art. 6(1)(f))</td>
+                        </tr>
+                        <tr>
+                            <td>Support, legal claims, and compliance</td>
+                            <td>Account, correspondence, and relevant service records</td>
+                            <td>Contract, legitimate interests, or legal obligations (Art. 6(1)(b), (c), or (f))</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Our legitimate interests are preventing abuse, enforcing feature limits, understanding compatibility,
+                keeping the service secure and reliable, responding to requests, and defending legal claims. You may
+                object as described in Section 10.
+            </p>
 
-    <h2>7. Changes to This Privacy Policy</h2>
-    <p>We may update this Privacy Policy from time to time. We will post the updated Privacy Policy on this page and
-        update the "Last updated" date.</p>
+            <h2>5. AI transparency and automated processing</h2>
+            <ul>
+                <li><strong>Provider and purpose:</strong> Google Gemini analyzes garment or outfit images and may
+                    classify garments, extract color and material, isolate garments, enhance images, remove backgrounds,
+                    generate a neutral avatar, and generate virtual try-on images.</li>
+                <li><strong>Human review:</strong> AI results can be inaccurate or alter color, material, body shape,
+                    face, garment details, or fit. Review results before saving, sharing, purchasing, or relying on them.
+                    Virtual try-on is a visualization, not a measurement or guarantee of real fit or appearance.</li>
+                <li><strong>Disclosure:</strong> Fashionista identifies generated or materially AI-modified images in the
+                    App and adds a visible label to supported exports. Provider-applied machine-readable provenance is
+                    preserved where technically available. Keep AI disclosures intact when sharing content.</li>
+                <li><strong>No significant automated decisions:</strong> Outfit rankings, style insights, classification,
+                    and image generation do not produce legal or similarly significant effects under GDPR Article 22.
+                    You can edit, reject, or delete results.</li>
+                <li><strong>No model training by Fashionista:</strong> Fashionista does not train its own AI model on your
+                    photos or sell them for AI training. Google processes inputs and outputs under the applicable Gemini
+                    API terms and data-processing terms.</li>
+            </ul>
 
-    <h2>8. Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us:</p>
-    <ul>
-        <li>By email: bilato.simone1999@gmail.com</li>
-    </ul>
+            <h2>6. Recipients and service providers</h2>
+            <div class="table-wrap" role="region" aria-label="Service providers" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Recipient</th>
+                            <th>Purpose and data</th>
+                            <th>More information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Supabase</td>
+                            <td>Authentication, database, cloud storage, wardrobe backup, upload logs, daily app-open
+                                events, app alerts, password reset, and account deletion</td>
+                            <td><a href="https://supabase.com/privacy">Privacy</a> ·
+                                <a href="https://supabase.com/legal/dpa">DPA</a></td>
+                        </tr>
+                        <tr>
+                            <td>Google Gemini</td>
+                            <td>Images, garment metadata, prompts, generated images, and technical data needed for AI
+                                analysis and generation</td>
+                            <td><a href="https://policies.google.com/privacy">Privacy</a> ·
+                                <a href="https://ai.google.dev/gemini-api/terms">Gemini API terms</a></td>
+                        </tr>
+                        <tr>
+                            <td>RevenueCat</td>
+                            <td>Subscription, entitlement, product, transaction-status, restore, and account-linking data</td>
+                            <td><a href="https://www.revenuecat.com/privacy">Privacy</a></td>
+                        </tr>
+                        <tr>
+                            <td>WeatherAPI.com</td>
+                            <td>Approximate coordinates and technical request data used to provide weather</td>
+                            <td><a href="https://www.weatherapi.com/privacy.aspx">Privacy</a></td>
+                        </tr>
+                        <tr>
+                            <td>Apple</td>
+                            <td>App distribution, payments, Sign in with Apple, StoreKit, device permissions, and local
+                                notifications</td>
+                            <td><a href="https://www.apple.com/legal/privacy/">Privacy</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                We may also disclose data when required by law, to protect users or the service, to establish or defend
+                legal claims, or as part of a merger or transfer of the App, subject to applicable safeguards. We do not
+                sell personal data or share it with advertising networks for cross-app tracking.
+            </p>
+
+            <h2>7. International transfers</h2>
+            <p>
+                Some providers may process data outside Italy or the European Economic Area. Where required, transfers
+                rely on an adequacy decision, the European Commission Standard Contractual Clauses, a provider data
+                processing agreement, and supplementary safeguards. Contact us to request information about safeguards
+                applicable to a particular transfer.
+            </p>
+
+            <h2>8. Storage and retention</h2>
+            <div class="table-wrap" role="region" aria-label="Retention periods" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Retention criterion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Account and cloud wardrobe data</td>
+                            <td>While the account is active or until you delete specific content or the account, followed
+                                by provider backup and deletion cycles unless retention is legally required</td>
+                        </tr>
+                        <tr>
+                            <td>Local wardrobe, avatar, body-position metrics, and try-on cache</td>
+                            <td>Until deleted in the App, replaced, cleared on sign-out/account deletion, or removed by
+                                uninstalling the App</td>
+                        </tr>
+                        <tr>
+                            <td>Raw avatar capture</td>
+                            <td>Temporarily in memory for validation and transmission; not intentionally saved as a
+                                separate Fashionista file</td>
+                        </tr>
+                        <tr>
+                            <td>Upload and app-open events</td>
+                            <td>While needed to enforce plan limits, secure and operate the service, understand version
+                                compatibility, or resolve disputes; account-linked records are deleted or de-identified
+                                when no longer needed or when applicable deletion is completed</td>
+                        </tr>
+                        <tr>
+                            <td>Weather cache and notification settings</td>
+                            <td>Weather is periodically replaced; settings remain locally until changed, reset, or the App
+                                is removed</td>
+                        </tr>
+                        <tr>
+                            <td>Subscription and transaction records</td>
+                            <td>Under Apple and RevenueCat retention rules and for periods required by tax, accounting,
+                                fraud-prevention, and consumer-protection law</td>
+                        </tr>
+                        <tr>
+                            <td>Support correspondence and legal records</td>
+                            <td>For as long as needed to answer the request and then as required to establish, exercise, or
+                                defend legal claims and meet legal obligations</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Google and other providers may retain limited service, security, or legal-compliance records under their
+                own terms. Account deletion cannot erase records that Apple or another independent controller must retain
+                by law.
+            </p>
+
+            <h2>9. Data security</h2>
+            <p>
+                We use iOS data protection, encrypted network transport, provider access controls, account authentication,
+                and separation of account storage paths. No system is completely secure. Keep your device and account
+                credentials protected and contact us if you suspect unauthorized access.
+            </p>
+
+            <h2>10. Your rights and choices</h2>
+            <p>Subject to applicable law, you may:</p>
+            <ul>
+                <li>request access to and a copy of your personal data;</li>
+                <li>request correction, deletion, or restriction of processing;</li>
+                <li>receive data you provided in a portable format where applicable;</li>
+                <li>object to processing based on legitimate interests;</li>
+                <li>withdraw consent at any time without affecting earlier lawful processing;</li>
+                <li>lodge a complaint with the Italian Data Protection Authority or your local supervisory authority.</li>
+            </ul>
+            <p>
+                Manage Camera, Photos, Location, and Notifications permissions in iOS Settings. Manage or cancel
+                subscriptions in your Apple App Store account. Contact us to exercise a privacy right. We may request
+                reasonable information to verify your identity.
+            </p>
+            <p>
+                Italian authority: <a href="https://www.garanteprivacy.it/">Garante per la protezione dei dati personali</a>.
+            </p>
+
+            <h2>11. Deletion and guest mode</h2>
+            <ul>
+                <li>You may delete individual garments in the App.</li>
+                <li>Account deletion is available in Profile settings. It starts deletion of authentication and associated
+                    Fashionista cloud data and clears the locally stored avatar, body-position metrics, avatar identifier,
+                    and try-on cache, subject to the retention exceptions above.</li>
+                <li>Signing out clears the local avatar and try-on cache but does not itself delete the account or all
+                    cloud wardrobe data.</li>
+                <li>Guest wardrobe data is primarily local. Delete items in the App or uninstall the App to remove it.
+                    Guest data may not be recoverable after uninstall.</li>
+            </ul>
+
+            <h2>12. Required and optional data</h2>
+            <p>
+                Account and authentication data are required for account-based cloud sync. Images and wardrobe details
+                are required only for the features you choose to use. Approximate location, notifications, avatar, and AI
+                Try-On are optional. Refusing optional data disables only the related feature. You can use guest mode for
+                supported local features, subject to its limits.
+            </p>
+
+            <h2>13. Changes to this notice</h2>
+            <p>
+                We may update this notice when the App, providers, or law changes. We will update the date above and,
+                where required, provide an in-App or other prominent notice before material changes take effect.
+            </p>
+
+            <h2>14. Contact</h2>
+            <p>
+                Controller: <strong>Simone Bilato, Italy</strong><br>
+                Email: <a href="mailto:bilato.simone1999@gmail.com">bilato.simone1999@gmail.com</a>
+            </p>
+        </section>
+
+        <section id="italiano" class="language-section" lang="it">
+            <h1>Informativa Privacy e Trasparenza AI</h1>
+            <p class="last-updated"><strong>Ultimo aggiornamento:</strong> 6 agosto 2026</p>
+
+            <div class="notice">
+                <strong>In sintesi.</strong> Fashionista tratta informazioni sul guardaroba, dati account, posizione
+                approssimativa facoltativa, informazioni sugli abbonamenti e immagini scelte dall’utente. Alcune immagini
+                vengono inviate a Google Gemini quando l’utente richiede funzioni AI. Fashionista non vende dati personali,
+                non mostra pubblicità di terze parti, non usa IDFA e non adotta decisioni con effetti giuridici o analogamente
+                significativi.
+            </div>
+
+            <h2>1. Titolare e ambito</h2>
+            <p>
+                Fashionista è gestita da <strong>Simone Bilato</strong>, Italia (il “Titolare”, “Fashionista”, “noi” o
+                “nostro”). Questa informativa descrive il trattamento dei dati personali durante l’uso dell’applicazione
+                Fashionista per iOS (l’“App”) e nei contatti relativi all’App.
+            </p>
+            <p>
+                Contatto privacy: <a href="mailto:bilato.simone1999@gmail.com">bilato.simone1999@gmail.com</a>.
+                Non è stato nominato un responsabile della protezione dei dati perché, allo stato, non risulta obbligatorio
+                per i trattamenti descritti.
+            </p>
+
+            <h2>2. Età e immagini di altre persone</h2>
+            <p>
+                Fashionista è destinata esclusivamente a persone di almeno <strong>18 anni</strong>. Chi ha meno di 18 anni
+                non deve creare un account o usare le funzioni AI. Non caricare immagini di minori. Carica la foto di un
+                altro adulto solo dopo averlo informato e se disponi di un valido diritto o permesso per usarla nella
+                funzione richiesta.
+            </p>
+
+            <h2>3. Dati personali trattati</h2>
+
+            <h3>3.1 Account e autenticazione</h3>
+            <ul>
+                <li>Indirizzo email, identificatori di autenticazione, informazioni di sessione e ID account.</li>
+                <li>Con Accedi con Apple, token di autenticazione Apple ed eventuali nome o email resi disponibili da Apple
+                    secondo le scelte privacy dell’utente.</li>
+                <li>Le password sono gestite dal fornitore di autenticazione e non sono conservate in chiaro da Fashionista.</li>
+            </ul>
+
+            <h3>3.2 Guardaroba, outfit e stile</h3>
+            <ul>
+                <li>Foto di capi, outfit e foto a figura intera acquisite o selezionate dall’utente.</li>
+                <li>Tipo, colore, materiale, descrizione, nome file, combinazioni outfit e provenienza AI.</li>
+                <li>Outfit preferiti, colori preferiti, preferenze di stile, storico utilizzi e analisi derivate usate per
+                    personalizzare i suggerimenti.</li>
+                <li>I dati guardaroba sono conservati localmente. Con un account, dati e immagini dei capi vengono anche
+                    sincronizzati su Supabase per backup e accesso da più dispositivi.</li>
+            </ul>
+
+            <h3>3.3 Avatar AI e prova virtuale</h3>
+            <ul>
+                <li>Quando l’utente sceglie Avatar o AI Try-On, una foto verificata a figura intera viene inviata a Google
+                    Gemini per generare avatar neutro e immagini di prova virtuale.</li>
+                <li>L’App usa Apple Vision sul dispositivo per verificare orientamento, presenza di una sola persona intera,
+                    punti di posa e gesto di verifica richiesto. Metriche normalizzate sulla posizione del corpo vengono
+                    conservate localmente con l’avatar.</li>
+                <li>Lo scatto sorgente resta temporaneamente nella memoria dell’App per verifica e trasmissione. Fashionista
+                    non lo salva intenzionalmente come file separato. Avatar generato e cache try-on restano sul dispositivo.</li>
+                <li>Avatar e posa non vengono usati per identificare o autenticare l’utente, dedurre salute, emozioni,
+                    origine etnica, religione, orientamento sessuale o altri tratti sensibili, né per categorizzazione biometrica.</li>
+            </ul>
+
+            <h3>3.4 Posizione e meteo</h3>
+            <ul>
+                <li>Con autorizzazione iOS, l’App richiede posizione approssimativa a livello città durante l’uso.</li>
+                <li>Le coordinate vengono inviate a WeatherAPI.com per ottenere temperatura, pioggia, umidità, vento, UV e
+                    condizioni usate nei suggerimenti outfit.</li>
+                <li>I risultati meteo vengono memorizzati temporaneamente e aggiornati periodicamente. Fashionista non crea
+                    uno storico delle posizioni.</li>
+            </ul>
+
+            <h3>3.5 Abbonamenti e acquisti</h3>
+            <ul>
+                <li>RevenueCat tratta ID utente anonimo o collegato all’account, prodotti, diritti di accesso, stato
+                    abbonamento, acquisti, rinnovi e ripristini.</li>
+                <li>Apple tratta i dati di pagamento. Fashionista non riceve o conserva numeri di carta.</li>
+            </ul>
+
+            <h3>3.6 Utilizzo, dispositivo e modalità ospite</h3>
+            <ul>
+                <li>Eventi e data degli upload, collegati all’account o a un UUID ospite generato localmente, per applicare
+                    i limiti del piano.</li>
+                <li>Per utenti autenticati, un evento giornaliero di apertura contenente ID utente, data, versione App,
+                    numero build, piattaforma, modello dispositivo e versione iOS, usato per affidabilità e compatibilità.</li>
+                <li>UUID ospite salvato in UserDefaults. Viene azzerato alla disinstallazione e non è un ID pubblicitario.</li>
+                <li>I fornitori possono ricevere dati tecnici di rete, come l’indirizzo IP, necessari a erogare e proteggere
+                    i propri servizi.</li>
+            </ul>
+
+            <h3>3.7 Permessi, notifiche e supporto</h3>
+            <ul>
+                <li>Fotocamera e libreria foto sono usate solo quando l’utente acquisisce o seleziona immagini.</li>
+                <li>I promemoria outfit sono notifiche locali iOS. Stato e orario possono essere conservati localmente.</li>
+                <li>In caso di contatto, trattiamo email, messaggio, allegati e informazioni necessarie a rispondere.</li>
+            </ul>
+
+            <h2>4. Finalità e basi giuridiche</h2>
+            <div class="table-wrap" role="region" aria-label="Finalità e basi giuridiche" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Finalità</th>
+                            <th>Dati</th>
+                            <th>Base giuridica GDPR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Account, guardaroba, sincronizzazione cloud, AI e funzioni richieste</td>
+                            <td>Account, immagini, guardaroba, stile, avatar e risultati</td>
+                            <td>Esecuzione del contratto o misure precontrattuali richieste (Art. 6(1)(b))</td>
+                        </tr>
+                        <tr>
+                            <td>Suggerimenti meteo e notifiche locali</td>
+                            <td>Posizione approssimativa, meteo e preferenze notifiche</td>
+                            <td>Consenso (Art. 6(1)(a)); revocabile dalle impostazioni iOS o App</td>
+                        </tr>
+                        <tr>
+                            <td>Abbonamenti, diritti e ripristino acquisti</td>
+                            <td>ID account o anonimo e stato transazioni</td>
+                            <td>Contratto (Art. 6(1)(b)); obbligo legale ove applicabile (Art. 6(1)(c))</td>
+                        </tr>
+                        <tr>
+                            <td>Limiti piano, sicurezza, diagnosi, compatibilità e affidabilità</td>
+                            <td>Upload, aperture, dispositivo, versione e dati tecnici</td>
+                            <td>Legittimo interesse a gestire e proteggere l’App (Art. 6(1)(f))</td>
+                        </tr>
+                        <tr>
+                            <td>Supporto, controversie e adempimenti</td>
+                            <td>Account, corrispondenza e registri pertinenti</td>
+                            <td>Contratto, legittimo interesse o obbligo legale (Art. 6(1)(b), (c) o (f))</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                I legittimi interessi comprendono prevenzione abusi, applicazione limiti, compatibilità, sicurezza e
+                affidabilità, risposta alle richieste e difesa di diritti. È possibile opporsi come indicato nella Sezione 10.
+            </p>
+
+            <h2>5. Trasparenza AI e trattamenti automatizzati</h2>
+            <ul>
+                <li><strong>Fornitore e finalità:</strong> Google Gemini analizza immagini di capi o outfit e può
+                    classificare capi, estrarre colore e materiale, isolare capi, migliorare immagini, rimuovere sfondi,
+                    generare avatar neutro e immagini di prova virtuale.</li>
+                <li><strong>Controllo umano:</strong> i risultati AI possono essere inesatti o modificare colore, materiale,
+                    corpo, volto, dettagli o vestibilità. Controllali prima di salvare, condividere, acquistare o fare
+                    affidamento. Try-on è visualizzazione, non misura o garanzia di vestibilità e aspetto reale.</li>
+                <li><strong>Segnalazione:</strong> Fashionista identifica nell’App le immagini generate o materialmente
+                    modificate con AI e aggiunge etichetta visibile agli export supportati. La provenienza machine-readable
+                    applicata dal fornitore viene preservata dove tecnicamente disponibile. Mantieni le etichette quando
+                    condividi il contenuto.</li>
+                <li><strong>Nessuna decisione significativa:</strong> classificazioni, ranking outfit, analisi stile e
+                    generazione immagini non producono effetti giuridici o analogamente significativi ai sensi dell’Art. 22
+                    GDPR. L’utente può modificare, rifiutare o eliminare i risultati.</li>
+                <li><strong>Nessun addestramento Fashionista:</strong> Fashionista non addestra un proprio modello AI sulle
+                    foto e non le vende per addestramento AI. Google tratta input e output secondo termini Gemini API e
+                    condizioni sul trattamento dati applicabili.</li>
+            </ul>
+
+            <h2>6. Destinatari e fornitori</h2>
+            <div class="table-wrap" role="region" aria-label="Fornitori" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Destinatario</th>
+                            <th>Finalità e dati</th>
+                            <th>Informazioni</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Supabase</td>
+                            <td>Autenticazione, database, cloud, backup guardaroba, log upload, aperture giornaliere,
+                                avvisi, reset password e cancellazione account</td>
+                            <td><a href="https://supabase.com/privacy">Privacy</a> ·
+                                <a href="https://supabase.com/legal/dpa">DPA</a></td>
+                        </tr>
+                        <tr>
+                            <td>Google Gemini</td>
+                            <td>Immagini, metadati capi, prompt, immagini generate e dati tecnici necessari per analisi e
+                                generazione AI</td>
+                            <td><a href="https://policies.google.com/privacy">Privacy</a> ·
+                                <a href="https://ai.google.dev/gemini-api/terms">Termini Gemini API</a></td>
+                        </tr>
+                        <tr>
+                            <td>RevenueCat</td>
+                            <td>Abbonamenti, diritti, prodotti, stato transazioni, ripristini e collegamento account</td>
+                            <td><a href="https://www.revenuecat.com/privacy">Privacy</a></td>
+                        </tr>
+                        <tr>
+                            <td>WeatherAPI.com</td>
+                            <td>Coordinate approssimative e dati tecnici necessari a fornire il meteo</td>
+                            <td><a href="https://www.weatherapi.com/privacy.aspx">Privacy</a></td>
+                        </tr>
+                        <tr>
+                            <td>Apple</td>
+                            <td>Distribuzione App, pagamenti, Accedi con Apple, StoreKit, permessi e notifiche locali</td>
+                            <td><a href="https://www.apple.com/legal/privacy/">Privacy</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Possiamo comunicare dati quando richiesto dalla legge, per proteggere utenti o servizio, accertare o
+                difendere diritti, oppure in una fusione o trasferimento dell’App, con le garanzie applicabili. Non vendiamo
+                dati personali e non li condividiamo con reti pubblicitarie per tracciamento tra app.
+            </p>
+
+            <h2>7. Trasferimenti internazionali</h2>
+            <p>
+                Alcuni fornitori possono trattare dati fuori dall’Italia o dallo Spazio Economico Europeo. Quando richiesto,
+                i trasferimenti si basano su decisione di adeguatezza, Clausole Contrattuali Standard della Commissione
+                europea, accordi sul trattamento e misure supplementari. Contattaci per informazioni sulle garanzie
+                applicabili a uno specifico trasferimento.
+            </p>
+
+            <h2>8. Conservazione</h2>
+            <div class="table-wrap" role="region" aria-label="Tempi di conservazione" tabindex="0">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Criterio di conservazione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Account e guardaroba cloud</td>
+                            <td>Finché l’account è attivo o fino alla cancellazione del contenuto/account, seguita dai cicli
+                                tecnici di backup e rimozione del fornitore, salvo obblighi legali</td>
+                        </tr>
+                        <tr>
+                            <td>Guardaroba locale, avatar, metriche corpo e cache try-on</td>
+                            <td>Fino alla cancellazione nell’App, sostituzione, pulizia con logout/cancellazione account o
+                                disinstallazione</td>
+                        </tr>
+                        <tr>
+                            <td>Scatto avatar sorgente</td>
+                            <td>Temporaneamente in memoria per verifica e trasmissione; non salvato intenzionalmente come
+                                file Fashionista separato</td>
+                        </tr>
+                        <tr>
+                            <td>Eventi upload e apertura App</td>
+                            <td>Finché necessari per limiti piano, sicurezza, funzionamento, compatibilità o controversie;
+                                i dati collegati all’account vengono eliminati o de-identificati quando non più necessari o
+                                completata la cancellazione applicabile</td>
+                        </tr>
+                        <tr>
+                            <td>Cache meteo e notifiche</td>
+                            <td>Il meteo viene sostituito periodicamente; le impostazioni restano finché modificate,
+                                azzerate o l’App viene rimossa</td>
+                        </tr>
+                        <tr>
+                            <td>Abbonamenti e transazioni</td>
+                            <td>Secondo regole Apple e RevenueCat e per periodi richiesti da norme fiscali, contabili,
+                                antifrode e tutela consumatori</td>
+                        </tr>
+                        <tr>
+                            <td>Supporto e registri legali</td>
+                            <td>Per rispondere alla richiesta e poi quanto necessario per accertare, esercitare o difendere
+                                diritti e adempiere obblighi</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Google e altri fornitori possono conservare registri limitati per sicurezza, servizio o legge secondo i
+                propri termini. La cancellazione account non può eliminare registri che Apple o altro titolare autonomo
+                debba conservare per legge.
+            </p>
+
+            <h2>9. Sicurezza</h2>
+            <p>
+                Usiamo protezione dati iOS, trasporto di rete cifrato, controlli di accesso dei fornitori, autenticazione e
+                separazione dei percorsi cloud per account. Nessun sistema è totalmente sicuro. Proteggi dispositivo e
+                credenziali e contattaci se sospetti accessi non autorizzati.
+            </p>
+
+            <h2>10. Diritti e scelte</h2>
+            <p>Nei limiti della legge applicabile, puoi:</p>
+            <ul>
+                <li>chiedere accesso e copia dei dati personali;</li>
+                <li>chiedere rettifica, cancellazione o limitazione;</li>
+                <li>ricevere in formato portabile i dati forniti, ove applicabile;</li>
+                <li>opporti ai trattamenti basati sul legittimo interesse;</li>
+                <li>revocare il consenso senza pregiudicare i trattamenti precedenti;</li>
+                <li>presentare reclamo al Garante italiano o all’autorità locale competente.</li>
+            </ul>
+            <p>
+                Gestisci Fotocamera, Foto, Posizione e Notifiche nelle impostazioni iOS. Gestisci o annulla abbonamenti
+                dall’account Apple App Store. Contattaci per esercitare un diritto. Potremo chiedere informazioni ragionevoli
+                per verificare l’identità.
+            </p>
+            <p>
+                Autorità italiana: <a href="https://www.garanteprivacy.it/">Garante per la protezione dei dati personali</a>.
+            </p>
+
+            <h2>11. Cancellazione e modalità ospite</h2>
+            <ul>
+                <li>Puoi eliminare singoli capi nell’App.</li>
+                <li>La cancellazione account è disponibile nelle impostazioni Profilo. Avvia la rimozione di autenticazione
+                    e dati cloud Fashionista associati e cancella avatar locale, metriche di posizione corpo, identificatore
+                    avatar e cache try-on, salve le eccezioni di conservazione sopra indicate.</li>
+                <li>Il logout elimina avatar locale e cache try-on, ma non cancella l’account o tutti i dati guardaroba cloud.</li>
+                <li>I dati ospite sono principalmente locali. Eliminali nell’App o disinstalla l’App. Dopo la disinstallazione
+                    potrebbero non essere recuperabili.</li>
+            </ul>
+
+            <h2>12. Dati necessari e facoltativi</h2>
+            <p>
+                Account e autenticazione sono necessari per sincronizzazione cloud con account. Immagini e dettagli
+                guardaroba servono solo alle funzioni scelte. Posizione, notifiche, avatar e AI Try-On sono facoltativi.
+                Rifiutare dati facoltativi disabilita solo la relativa funzione. La modalità ospite consente le funzioni
+                locali supportate, con i relativi limiti.
+            </p>
+
+            <h2>13. Modifiche</h2>
+            <p>
+                Possiamo aggiornare l’informativa quando cambiano App, fornitori o legge. Aggiorneremo la data e, quando
+                richiesto, mostreremo un avviso nell’App o altro avviso evidente prima di modifiche sostanziali.
+            </p>
+
+            <h2>14. Contatti</h2>
+            <p>
+                Titolare: <strong>Simone Bilato, Italia</strong><br>
+                Email: <a href="mailto:bilato.simone1999@gmail.com">bilato.simone1999@gmail.com</a>
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Fashionista · Privacy Policy / Informativa Privacy</p>
+    </footer>
 </body>
 
 </html>
